@@ -1,0 +1,20 @@
+{
+  "redirects": [
+    {
+      "source": "/cv",
+      "destination": "/"
+    },
+    {
+      "source": "/projets",
+      "destination": "/"
+    },
+    {
+      "source": "/contact",
+      "destination": "/"
+    },
+    {
+      "source": "/projets/:path*",
+      "destination": "/"
+    },
+  ]
+}

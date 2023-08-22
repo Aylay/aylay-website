@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		font-size: 10px;
+		@apply font-base relative;
+	}
+}
+
+@layer components {
+	.border-aylay {
+		@apply relative before:content-[''] before:absolute before:w-1/4 before:h-[2px] before:bg-amber before:left-0 before:bottom-0 inline-block;
+	}
+}
