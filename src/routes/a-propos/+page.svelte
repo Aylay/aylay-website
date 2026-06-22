@@ -26,7 +26,7 @@
 <section class="bg-cobalt text-cloud py-[clamp(48px,9vw,92px)]">
   <div class="wrap grid grid-cols-[1.05fr_0.95fr] max-[820px]:grid-cols-1 gap-[clamp(28px,5vw,60px)] items-center">
     <div class="rv">
-      <span class="block font-mono text-[11px] tracking-[.02em] text-saffron mb-4.5">{m.aboutEyebrow()}</span>
+      <span class="block font-mono text-[11px] tracking-[.02em] text-cloud/90 mb-4.5">{m.aboutEyebrow()}</span>
       <h1 class="font-display font-bold text-[clamp(42px,7.5vw,90px)] leading-[.92] tracking-tight mb-5.5">{m.aboutH1()}</h1>
       <p class="text-[clamp(16px,2.1vw,20px)] leading-[1.55] text-cloud/90 max-w-[46ch]">{m.aboutLede()}</p>
     </div>
