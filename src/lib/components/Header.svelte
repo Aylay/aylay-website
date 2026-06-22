@@ -72,7 +72,7 @@
             hreflang={l}
             lang={l}
             data-sveltekit-reload
-            class="{l === current ? 'text-saffron font-bold' : 'text-cloud/85'} hover:text-cloud transition-colors duration-140"
+            class="{l === current ? 'text-cloud font-bold underline decoration-2 underline-offset-4 decoration-saffron' : 'text-cloud/85'} hover:text-cloud transition-colors duration-140"
             aria-label={l === 'fr' ? 'Français' : 'English'}
             title={l === 'fr' ? 'Français' : 'English'}
             aria-current={l === current ? 'true' : undefined}

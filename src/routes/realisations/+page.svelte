@@ -1,6 +1,10 @@
 <script lang="ts">
   import { m } from '$lib/paraglide/messages';
   import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+  import Button from '$lib/components/Button.svelte';
+  import PageHero from '$lib/components/PageHero.svelte';
+  import SectionHeader from '$lib/components/SectionHeader.svelte';
+  import MetricCard from '$lib/components/MetricCard.svelte';
 
   const locale = getLocale();
   const ogImage = `https://lucas-attali.me/img/og-image-${locale}.png`;
@@ -18,64 +22,32 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<!-- Hero : bande cobalt -->
-<section class="bg-cobalt text-cloud py-[clamp(48px,8vw,84px)]">
-  <div class="wrap rv">
-    <span class="block font-mono text-[12px] text-saffron mb-4">{m.realEyebrow()}</span>
-    <h1 class="font-display font-bold text-[clamp(38px,7vw,82px)] leading-[.95] tracking-tight mb-4.5 max-w-[13ch]">{m.realH1()}</h1>
-    <p class="text-[clamp(16px,2.1vw,19px)] text-cloud/90 max-w-[54ch]">{m.realLede()}</p>
-  </div>
-</section>
+<PageHero
+  eyebrow={m.realEyebrow()}
+  title={m.realH1()}
+  lede={m.realLede()}
+  titleClass="max-w-[13ch]"
+  ledeClass="max-w-[54ch]"
+/>
 
 <!-- 01 Beavers : SEO + développement -->
 <section class="py-[clamp(52px,9vw,92px)] wrap">
-  <div class="flex items-baseline gap-3.5 mb-3.5 rv">
-    <span class="font-mono text-[12px] text-coral font-bold" aria-hidden="true">01</span>
-    <h2 class="font-display font-semibold text-[clamp(28px,5vw,48px)] tracking-[-0.02em] leading-none">Beavers</h2>
-  </div>
+  <SectionHeader number="01" title="Beavers" class="mb-3.5" />
   <p class="text-(--muted) max-w-[60ch] mb-7.5 rv">{m.realBeaversIntro()}</p>
 
-  <p class="pillar rv">seo</p>
+  <p class="font-mono text-[12px] tracking-[.08em] text-(--cobalt-ink) mt-7.5 mb-3.5 lowercase rv">seo</p>
   <div class="metrics rv">
-    <div class="metric">
-      <div class="m-num">x8</div>
-      <div class="m-lbl">{m.mSeoKw1Lbl()}</div>
-      <div class="m-tag">{m.mSeoKw1Tag()}</div>
-    </div>
-    <div class="metric">
-      <div class="m-num">40x</div>
-      <div class="m-lbl">{m.mSeoTrafLbl()}</div>
-      <div class="m-tag">B2B / services</div>
-    </div>
-    <div class="metric">
-      <div class="m-num">x30</div>
-      <div class="m-lbl">impressions</div>
-      <div class="m-tag">{m.mSeoImpTag()}</div>
-    </div>
-    <div class="metric">
-      <div class="m-num">+100%</div>
-      <div class="m-lbl">{m.mSeoKwLbl()}</div>
-      <div class="m-tag">{m.mSeoInsTag()}</div>
-    </div>
+    <MetricCard num="x8" label={m.mSeoKw1Lbl()} tag={m.mSeoKw1Tag()} />
+    <MetricCard num="40x" label={m.mSeoTrafLbl()} tag="B2B / services" />
+    <MetricCard num="x30" label="impressions" tag={m.mSeoImpTag()} />
+    <MetricCard num="+100%" label={m.mSeoKwLbl()} tag={m.mSeoInsTag()} />
   </div>
 
-  <p class="pillar rv">{m.realPillarDev()}</p>
+  <p class="font-mono text-[12px] tracking-[.08em] text-(--cobalt-ink) mt-7.5 mb-3.5 lowercase rv">{m.realPillarDev()}</p>
   <div class="metrics rv">
-    <div class="metric">
-      <div class="m-num">99%</div>
-      <div class="m-lbl">Lighthouse</div>
-      <div class="m-tag">{m.mDevLighTag()}</div>
-    </div>
-    <div class="metric">
-      <div class="m-num">+30</div>
-      <div class="m-lbl">sites & landing pages</div>
-      <div class="m-tag">{m.mDevSitesTag()}</div>
-    </div>
-    <div class="metric">
-      <div class="m-num">GTM</div>
-      <div class="m-lbl">{m.mDevGtmLbl()}</div>
-      <div class="m-tag">{m.mDevGtmTag()}</div>
-    </div>
+    <MetricCard num="99%" label="Lighthouse" tag={m.mDevLighTag()} />
+    <MetricCard num="+30" label="sites & landing pages" tag={m.mDevSitesTag()} />
+    <MetricCard num="GTM" label={m.mDevGtmLbl()} tag={m.mDevGtmTag()} />
   </div>
   <p class="font-mono text-[11px] text-(--faint) mt-5.5 rv">{m.realBeaversNote()}</p>
 </section>
@@ -87,12 +59,30 @@
     <h2 class="font-display font-semibold text-[clamp(26px,4.6vw,46px)] tracking-[-0.02em] mb-4.5 max-w-[18ch]">{m.realSkalpH2()}</h2>
     <p class="text-white/92 max-w-[62ch] mb-6.5">{m.realSkalpP()}</p>
     <div class="build">
-      <div><div class="b-t">SvelteKit</div><div class="b-s">{m.buildStorefront()}</div></div>
-      <div><div class="b-t">Strapi</div><div class="b-s">{m.buildCatalogue()}</div></div>
-      <div><div class="b-t">Stripe</div><div class="b-s">{m.buildPayment()}</div></div>
-      <div><div class="b-t">Brevo</div><div class="b-s">{m.buildEmails()}</div></div>
-      <div><div class="b-t">SendCloud</div><div class="b-s">{m.buildShipping()}</div></div>
-      <div><div class="b-t">Vercel</div><div class="b-s">{m.buildHosting()}</div></div>
+      <div class="border border-white/38 rounded-[10px] py-3.25 px-3.75">
+        <div class="font-mono text-[13px] font-bold text-white">SvelteKit</div>
+        <div class="text-[13px] text-white/82 mt-0.5">{m.buildStorefront()}</div>
+      </div>
+      <div class="border border-white/38 rounded-[10px] py-3.25 px-3.75">
+        <div class="font-mono text-[13px] font-bold text-white">Strapi</div>
+        <div class="text-[13px] text-white/82 mt-0.5">{m.buildCatalogue()}</div>
+      </div>
+      <div class="border border-white/38 rounded-[10px] py-3.25 px-3.75">
+        <div class="font-mono text-[13px] font-bold text-white">Stripe</div>
+        <div class="text-[13px] text-white/82 mt-0.5">{m.buildPayment()}</div>
+      </div>
+      <div class="border border-white/38 rounded-[10px] py-3.25 px-3.75">
+        <div class="font-mono text-[13px] font-bold text-white">Brevo</div>
+        <div class="text-[13px] text-white/82 mt-0.5">{m.buildEmails()}</div>
+      </div>
+      <div class="border border-white/38 rounded-[10px] py-3.25 px-3.75">
+        <div class="font-mono text-[13px] font-bold text-white">SendCloud</div>
+        <div class="text-[13px] text-white/82 mt-0.5">{m.buildShipping()}</div>
+      </div>
+      <div class="border border-white/38 rounded-[10px] py-3.25 px-3.75">
+        <div class="font-mono text-[13px] font-bold text-white">Vercel</div>
+        <div class="text-[13px] text-white/82 mt-0.5">{m.buildHosting()}</div>
+      </div>
     </div>
   </div>
 </section>
@@ -105,12 +95,12 @@
     <p class="text-cloud/92 max-w-[62ch] mb-7.5">{m.realJcP()}</p>
     <div class="jc-stats">
       <div>
-        <div class="s-num">14 000</div>
-        <div class="s-lbl">{m.jcStat1Lbl()}</div>
+        <div class="font-display font-bold text-[clamp(40px,7vw,72px)] text-saffron leading-none tracking-[-0.02em]">14 000</div>
+        <div class="font-mono text-[12px] text-cloud/82 mt-2 max-w-[22ch]">{m.jcStat1Lbl()}</div>
       </div>
       <div>
-        <div class="s-num">~3 <span class="text-[.5em]">{m.jcStat2Unit()}</span></div>
-        <div class="s-lbl">{m.jcStat2Lbl()}</div>
+        <div class="font-display font-bold text-[clamp(40px,7vw,72px)] text-saffron leading-none tracking-[-0.02em]">~3 <span class="text-[.5em]">{m.jcStat2Unit()}</span></div>
+        <div class="font-mono text-[12px] text-cloud/82 mt-2 max-w-[22ch]">{m.jcStat2Lbl()}</div>
       </div>
     </div>
   </div>
@@ -118,23 +108,17 @@
 
 <!-- NetlinkPro : produit perso en préparation -->
 <section class="py-[clamp(52px,9vw,92px)] wrap">
-  <div class="nl-card rv">
-    <p class="nl-label">{m.nlLabel()}</p>
-    <h2 class="nl-h">{m.nlH()}</h2>
-    <p class="nl-p">{m.nlP()}</p>
+  <div class="border border-(--line) border-l-4 border-l-cobalt rounded-xl p-[clamp(24px,4vw,38px)] bg-(--card) rv">
+    <p class="font-mono text-[11px] tracking-widest text-(--cobalt-ink) mb-2.5">{m.nlLabel()}</p>
+    <h2 class="font-display font-semibold text-[clamp(24px,4vw,38px)] tracking-[-0.02em] mb-3 max-w-[20ch]">{m.nlH()}</h2>
+    <p class="text-(--muted) max-w-[62ch]">{m.nlP()}</p>
   </div>
 </section>
 
 <!-- CTAs -->
 <section class="py-[clamp(52px,9vw,92px)] wrap">
   <div class="flex flex-wrap gap-3 rv">
-    <a
-      class="font-sans text-[15px] font-semibold px-6 py-3.25 rounded-lg border-2 border-transparent bg-saffron text-cobalt-deep transition-transform duration-140 hover:-translate-y-0.5 inline-block"
-      href="#contact"
-    >{m.ctaContact()}</a>
-    <a
-      class="font-sans text-[15px] font-semibold px-6 py-3.25 rounded-lg border-2 border-(--line-2) bg-transparent text-(--text) transition-transform duration-140 hover:-translate-y-0.5 inline-block"
-      href={localizeHref('/parcours')}
-    >{m.ctaJourney()}</a>
+    <Button href="#contact">{m.ctaContact()}</Button>
+    <Button href={localizeHref('/parcours')} variant="secondary">{m.ctaJourney()}</Button>
   </div>
 </section>

@@ -2,6 +2,9 @@
   import { onMount } from 'svelte';
   import { m } from '$lib/paraglide/messages';
   import { getLocale, localizeHref } from '$lib/paraglide/runtime';
+  import Button from '$lib/components/Button.svelte';
+  import SectionHeader from '$lib/components/SectionHeader.svelte';
+  import ArticleCard from '$lib/components/ArticleCard.svelte';
 
   const locale = getLocale();
   const ogDescription = m.heroLedeA() + m.heroLedeMark() + m.heroLedeB();
@@ -56,12 +59,12 @@
   {@html `<script type="application/ld+json">${JSON.stringify(personLd)}<\/script>`}
 </svelte:head>
 
-<!-- Hero -->
+<!-- Hero (unique : h1 géant, blockquote, horizon bar — pas de PageHero ici) -->
 <section class="bg-cobalt text-cloud pt-[clamp(56px,11vw,116px)] overflow-hidden">
   <div class="wrap">
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2.5 mb-7 text-saffron font-mono text-xs tracking-[.02em] rv">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2.5 mb-7 text-cloud/90 font-mono text-xs tracking-[.02em] rv">
       <span>{m.heroEyebrow()}</span>
-      <span class="inline-flex items-center gap-[7px] text-cloud/90">
+      <span class="inline-flex items-center gap-[7px]">
         <span class="w-1.5 h-1.5 rounded-full bg-saffron" aria-hidden="true"></span>
         {m.heroLocation()}
       </span>
@@ -75,16 +78,8 @@
       <cite class="block not-italic font-mono text-[11px] text-cloud/80 mt-2">{m.quoteAuthor()}</cite>
     </blockquote>
     <div class="flex flex-wrap gap-3 mb-[clamp(48px,7vw,72px)] rv">
-      <a
-        class="font-sans text-[15px] font-semibold px-6 py-3.25 rounded-lg border-2 border-transparent bg-saffron text-cobalt-deep transition-transform duration-140 hover:-translate-y-0.5 inline-block"
-        href="#contact"
-        title={m.ctaContact()}
-      >{m.ctaContact()}</a>
-      <a
-        class="font-sans text-[15px] font-semibold px-6 py-3.25 rounded-lg border-2 border-cloud/45 bg-transparent text-cloud transition-[transform,border-color] duration-140 hover:border-cloud hover:-translate-y-0.5 inline-block"
-        href={localizeHref('/parcours')}
-        title={m.ctaJourney()}
-      >{m.ctaJourney()}</a>
+      <Button href="#contact">{m.ctaContact()}</Button>
+      <Button href={localizeHref('/parcours')} variant="secondary-cobalt">{m.ctaJourney()}</Button>
     </div>
     <div class="border-t border-cloud/28 py-4 flex justify-between items-center relative font-mono text-[11px] text-cloud/90 tracking-[.02em]">
       <span class="sail-dot" aria-hidden="true"></span>
@@ -106,38 +101,17 @@
 
 <!-- What I do -->
 <section class="py-[clamp(56px,10vw,104px)] wrap">
-  <div class="flex items-baseline gap-3.5 mb-11">
-    <span class="font-mono text-xs text-coral font-bold">01</span>
-    <h2 class="font-display font-semibold text-[clamp(30px,5.2vw,52px)] tracking-[-0.02em] leading-none">{m.whatTitle()}</h2>
-  </div>
+  <SectionHeader number="01" title={m.whatTitle()} class="mb-11" />
   <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,270px),1fr))] gap-4">
-    <article
-      class="card-accent bg-(--card) border border-(--line) rounded-[14px] p-[clamp(24px,3vw,32px)] relative overflow-hidden transition-[transform,border-color] duration-[240ms] hover:-translate-y-1 hover:border-(--line-2) rv [--c:var(--cobalt-label)]"
-    >
-      <div class="font-mono text-[11px] font-bold tracking-[.04em] text-(--c) flex justify-between mb-4.5">
-        <span>{m.beaversTag()}</span><span>2019</span>
-      </div>
-      <h3 class="font-display font-semibold text-[26px] tracking-[-0.01em] mb-2.5">Beavers</h3>
-      <p class="text-[15px] leading-[1.6] text-(--muted)">{m.beaversBody()}</p>
-    </article>
-    <article
-      class="card-accent bg-(--card) border border-(--line) rounded-[14px] p-[clamp(24px,3vw,32px)] relative overflow-hidden transition-[transform,border-color] duration-[240ms] hover:-translate-y-1 hover:border-(--line-2) rv [--c:var(--color-coral)]"
-    >
-      <div class="font-mono text-[11px] font-bold tracking-[.04em] text-(--c) flex justify-between mb-4.5">
-        <span>{m.skalpTag()}</span><span>2025</span>
-      </div>
-      <h3 class="font-display font-semibold text-[26px] tracking-[-0.01em] mb-2.5">Skalp</h3>
-      <p class="text-[15px] leading-[1.6] text-(--muted)">{m.skalpBody()}</p>
-    </article>
-    <article
-      class="card-accent bg-(--card) border border-(--line) rounded-[14px] p-[clamp(24px,3vw,32px)] relative overflow-hidden transition-[transform,border-color] duration-[240ms] hover:-translate-y-1 hover:border-(--line-2) rv [--c:var(--color-teal)]"
-    >
-      <div class="font-mono text-[11px] font-bold tracking-[.04em] text-(--c) flex justify-between mb-4.5">
-        <span>{m.codeTag()}</span><span>{m.codeTag2()}</span>
-      </div>
-      <h3 class="font-display font-semibold text-[26px] tracking-[-0.01em] mb-2.5">{m.codeTitle()}</h3>
-      <p class="text-[15px] leading-[1.6] text-(--muted)">{m.codeBody()}</p>
-    </article>
+    <ArticleCard tag={m.beaversTag()} year="2019" title="Beavers" color="cobalt">
+      {m.beaversBody()}
+    </ArticleCard>
+    <ArticleCard tag={m.skalpTag()} year="2025" title="Skalp" color="coral">
+      {m.skalpBody()}
+    </ArticleCard>
+    <ArticleCard tag={m.codeTag()} year={m.codeTag2()} title={m.codeTitle()} color="teal">
+      {m.codeBody()}
+    </ArticleCard>
   </div>
 </section>
 
