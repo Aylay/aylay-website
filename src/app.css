@@ -1,16 +1,337 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer base {
-	html {
-		font-size: 10px;
-		@apply font-base relative;
-	}
+/* ===== Design tokens ===== */
+@theme {
+  --color-cobalt: #1F3DE6;
+  --color-cobalt-deep: #16267A;
+  --color-teal: #0E9D87;
+  --color-teal-deep: #06403A;
+  --color-coral: #FF5A4D;
+  --color-saffron: #FFB200;
+  --color-cloud: #F8F7F2;
+  --color-paper: #F4F2EC;
+  --color-ink: #10131A;
+  --font-display: 'Clash Display', system-ui, sans-serif;
+  --font-sans: 'General Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
 }
 
-@layer components {
-	.border-aylay {
-		@apply relative before:content-[''] before:absolute before:w-1/4 before:h-[2px] before:bg-amber before:left-0 before:bottom-0 inline-block;
-	}
+/* ===== Self-hosted fonts (zero external requests) ===== */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Semibold.woff2') format('woff2'),
+       url('/fonts/ClashDisplay-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Bold.woff2') format('woff2'),
+       url('/fonts/ClashDisplay-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Regular.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Medium.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Semibold.woff2') format('woff2'),
+       url('/fonts/GeneralSans-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/spacemono-regular.woff2') format('woff2'),
+       url('/fonts/spacemono-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/spacemono-bold.woff2') format('woff2'),
+       url('/fonts/spacemono-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== CSS custom properties (dark-mode-aware values) ===== */
+:root {
+  --paper: var(--color-paper);
+  --card: #FBFAF6;
+  --text: #10131A;
+  --muted: #56564E;
+  --faint: #8A897F;
+  --line: rgba(16, 19, 26, .12);
+  --line-2: rgba(16, 19, 26, .22);
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --d1: 140ms;
+  --d2: 240ms;
+  --d3: 460ms;
+}
+
+[data-theme="dark"] {
+  --paper: #0D0F13;
+  --card: #16191F;
+  --text: #F4F2EC;
+  --muted: #A2A198;
+  --faint: #8E8D83;
+  --line: rgba(244, 242, 236, .12);
+  --line-2: rgba(244, 242, 236, .22);
+}
+
+/* ===== Global resets & base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--d2) var(--ease), color var(--d2) var(--ease);
+}
+::selection { background: var(--color-saffron); color: var(--color-cobalt-deep); }
+:focus-visible { outline: 2.5px solid var(--color-saffron); outline-offset: 3px; border-radius: 2px; }
+
+/* ===== Layout utility (clamp padding — stays in CSS) ===== */
+.wrap {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 64px);
+}
+
+/* ===== Accessibility ===== */
+.skip {
+  position: absolute;
+  left: -9999px;
+  background: var(--color-saffron);
+  color: var(--color-cobalt-deep);
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  z-index: 60;
+}
+.skip:focus { left: 12px; top: 12px; }
+
+#contact { scroll-margin-top: 84px; }
+
+/* ===== Pseudo-element animations (cannot be expressed as inline utilities) ===== */
+
+/* Animated underline on nav links */
+.nav-link { position: relative; padding-block: 4px; }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-saffron);
+  transition: width var(--d2) var(--ease);
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after { width: 100%; }
+.nav-link[aria-current="page"] { color: var(--color-cloud); }
+
+/* Animated underline on hero mark text */
+.mark {
+  position: relative;
+  color: var(--color-saffron);
+  white-space: nowrap;
+}
+.mark::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: .02em;
+  height: 3px;
+  background: var(--color-saffron);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: draw 720ms var(--ease) 650ms forwards;
+}
+@keyframes draw { to { transform: scaleX(1); } }
+
+/* Sailing dot in the horizon bar */
+.sail-dot {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-saffron);
+  animation: sail 9s var(--ease) infinite alternate;
+}
+@keyframes sail { from { left: 0; } to { left: 100%; } }
+
+/* Coloured top accent on cards (reads --c set on the element) */
+.card-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--c);
+}
+
+/* ===== Scroll-reveal (driven by IntersectionObserver in layout) ===== */
+.rv { transition: opacity var(--d3) var(--ease), transform var(--d3) var(--ease); }
+.reveal-ready .rv { opacity: 0; transform: translateY(12px); }
+.reveal-ready .rv.in { opacity: 1; transform: none; }
+
+/* ===== Menu mobile (animation d'ouverture — impossible à faire autrement) ===== */
+.mobile-menu { display: none; }
+
+@media (max-width: 720px) {
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 60px;
+    z-index: 39;
+    background: var(--color-cobalt);
+    border-top: 1px solid rgba(248, 247, 242, .18);
+    padding: 6px clamp(20px, 5vw, 64px) 22px;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity .24s, transform .24s;
+  }
+  .mobile-menu.open { opacity: 1; transform: none; pointer-events: auto; }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
+  .rv { opacity: 1; transform: none; }
+  .mark::after { transform: scaleX(1); }
+  .sail-dot { display: none; }
+  .mobile-menu { transition: none; }
+}
+
+/* ===== Page À propos ===== */
+.ab-hero-fig picture { display: block; width: 100%; height: 100%; }
+.ab-hero-fig img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: luminosity; opacity: .95; }
+.ab-hero-fig::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(31, 61, 230, .12), rgba(6, 64, 58, .45));
+  pointer-events: none;
+}
+.ab-portrait picture { display: block; }
+.ab-portrait img { width: 100%; display: block; aspect-ratio: 4/5; object-fit: cover; }
+.ab-portrait::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--color-cobalt);
+  z-index: 2;
+}
+.ab-bio-text p { font-size: 17px; line-height: 1.72; margin-bottom: 18px; max-width: 60ch; }
+.ab-bio-text p:last-child { margin-bottom: 0; }
+.facts-dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px 30px;
+  margin-bottom: 30px;
+}
+.facts-dl > div { border-top: 1px solid rgba(248, 247, 242, .22); padding-top: 10px; }
+.facts-dl dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .05em; color: var(--color-saffron); margin-bottom: 5px; }
+.facts-dl dd { font-size: 15px; color: var(--color-cloud); }
+
+/* ===== Page Parcours ===== */
+
+/* Color tokens for timeline items */
+.c-cobalt { --c: var(--color-cobalt); }
+.c-teal   { --c: var(--color-teal); }
+.c-coral  { --c: var(--color-coral); }
+.c-saffron { --c: var(--color-saffron); }
+
+/* Timeline */
+.tl { list-style: none; position: relative; padding-left: 30px; }
+.tl::before {
+  content: "";
+  position: absolute;
+  left: 7px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: var(--line);
+}
+.tl-item { position: relative; padding-bottom: 38px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -30px; top: 5px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--c);
+  border: 3px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+/* Stack chips */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.chips span { font-family: var(--font-mono); font-size: 13px; padding: 7px 13px; border: 1px solid rgba(248, 247, 242, .26); border-radius: 8px; color: var(--color-cloud); }
+
+/* Principles */
+.principles { list-style: none; display: grid; gap: 11px; max-width: 62ch; }
+.principles li { position: relative; padding-left: 22px; color: rgba(248, 247, 242, .92); font-size: 16px; }
+.principles li::before { content: "\2192"; position: absolute; left: 0; color: var(--color-saffron); font-family: var(--font-mono); }
+
+/* Formation & certifications */
+.fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); }
+@media (max-width: 820px) { .fc-grid { grid-template-columns: 1fr; } }
+.fc h4 { font-family: var(--font-mono); font-size: 12px; letter-spacing: .05em; color: var(--color-coral); margin-bottom: 16px; text-transform: lowercase; }
+.fc ul { list-style: none; display: grid; gap: 16px; }
+.fc li { border-top: 1px solid var(--line); padding-top: 12px; }
+.fc-t { font-family: var(--font-display); font-weight: 600; font-size: 18px; }
+.fc-s { font-size: 14px; color: var(--muted); }
+.fc-y { font-family: var(--font-mono); font-size: 11px; color: var(--faint); }
+
+/* ===== Page Réalisations ===== */
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 14px; }
+.metric { border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; background: var(--card); }
+.m-num { font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 4vw, 42px); letter-spacing: -.02em; color: var(--color-cobalt); line-height: 1; }
+.m-lbl { font-size: 14px; color: var(--text); margin-top: 8px; font-weight: 600; }
+.m-tag { font-family: var(--font-mono); font-size: 11px; color: var(--faint); margin-top: 3px; }
+.pillar { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--color-cobalt); margin: 30px 0 14px; text-transform: lowercase; }
+.build { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; max-width: 880px; }
+.build div { border: 1px solid rgba(255, 255, 255, .38); border-radius: 10px; padding: 13px 15px; }
+.b-t { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: #fff; }
+.b-s { font-size: 13px; color: rgba(255, 255, 255, .82); margin-top: 2px; }
+.jc-stats { display: flex; gap: clamp(30px, 6vw, 72px); flex-wrap: wrap; }
+.s-num { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 7vw, 72px); color: var(--color-saffron); line-height: 1; letter-spacing: -.02em; }
+.s-lbl { font-family: var(--font-mono); font-size: 12px; color: rgba(248, 247, 242, .82); margin-top: 8px; max-width: 22ch; }
+.nl-card { border: 1px solid var(--line); border-left: 4px solid var(--color-cobalt); border-radius: 12px; padding: clamp(24px, 4vw, 38px); background: var(--card); }
+.nl-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--color-cobalt); margin-bottom: 10px; }
+.nl-h { font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 4vw, 38px); letter-spacing: -.02em; margin-bottom: 12px; max-width: 20ch; }
+.nl-p { color: var(--muted); max-width: 62ch; }

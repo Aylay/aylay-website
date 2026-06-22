@@ -1,13 +1,4 @@
 User-agent: *
+Allow: /
 
-User-agent: Googlebot
-Disallow:
-
-User-agent: AdsBot-Google
-Disallow:
-
-User-agent: Googlebot-Image
-Disallow:
-
-Sitemap: https://www.lucas-attali.me/sitemap.xml
-Sitemap: https://www.lucas-attali.me/sitemap.xml.gz
+Sitemap: https://lucas-attali.me/sitemap.xml
