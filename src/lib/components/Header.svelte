@@ -5,10 +5,10 @@
   import { m } from '$lib/paraglide/messages';
   import { localizeHref, deLocalizeHref, locales, getLocale } from '$lib/paraglide/runtime';
 
-  let theme = $state<'light' | 'dark'>('light');
+  let theme = $state<'light' | 'dark'>('dark');
   let menuOpen = $state(false);
 
-  onMount(() => { theme = (document.documentElement.dataset.theme as 'light' | 'dark') || 'light'; });
+  onMount(() => { theme = (document.documentElement.dataset.theme as 'light' | 'dark') || 'dark'; });
 
   function toggleTheme() {
     theme = theme === 'light' ? 'dark' : 'light';

@@ -10,8 +10,8 @@
     <script>
       try {
         var t = localStorage.getItem('theme');
-        document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      } catch (e) { document.documentElement.dataset.theme = 'light'; }
+        document.documentElement.dataset.theme = t || 'dark';
+      } catch (e) { document.documentElement.dataset.theme = 'dark'; }
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reveal-ready');
     </script>
     %sveltekit.head%

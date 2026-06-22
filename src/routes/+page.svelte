@@ -41,7 +41,8 @@
       'https://github.com/aylay',
       'https://www.linkedin.com/in/lucasattali/',
       'https://beavers-agency.fr/',
-      'https://www.skalp.shop/'
+      'https://www.skalp.shop/',
+      'https://www.instagram.com/aylllay/'
     ]
   };
 </script>
