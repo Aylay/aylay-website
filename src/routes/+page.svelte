@@ -61,7 +61,7 @@
   <div class="wrap">
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2.5 mb-7 text-saffron font-mono text-xs tracking-[.02em] rv">
       <span>{m.heroEyebrow()}</span>
-      <span class="inline-flex items-center gap-[7px] text-cloud/70">
+      <span class="inline-flex items-center gap-[7px] text-cloud/90">
         <span class="w-1.5 h-1.5 rounded-full bg-saffron" aria-hidden="true"></span>
         {m.heroLocation()}
       </span>
@@ -72,7 +72,7 @@
     </p>
     <blockquote class="border-l-[3px] border-saffron pl-[18px] max-w-[46ch] mb-10 rv">
       <p class="text-[clamp(15px,2.1vw,18px)] leading-[1.5] text-cloud/86">{m.quoteText()}</p>
-      <cite class="block not-italic font-mono text-[11px] text-cloud/55 mt-2">{m.quoteAuthor()}</cite>
+      <cite class="block not-italic font-mono text-[11px] text-cloud/80 mt-2">{m.quoteAuthor()}</cite>
     </blockquote>
     <div class="flex flex-wrap gap-3 mb-[clamp(48px,7vw,72px)] rv">
       <a
@@ -86,9 +86,9 @@
         title={m.ctaJourney()}
       >{m.ctaJourney()}</a>
     </div>
-    <div class="border-t border-cloud/28 py-4 flex justify-between items-center relative font-mono text-[11px] text-cloud/62 tracking-[.02em]">
+    <div class="border-t border-cloud/28 py-4 flex justify-between items-center relative font-mono text-[11px] text-cloud/90 tracking-[.02em]">
       <span class="sail-dot" aria-hidden="true"></span>
-      <span>Roquebrune · 43.5, 6.63</span>
+      <span>Roquebrune-sur-Argens, France · 43.5, 6.63</span>
       <span>{m.pinSydney()} · -33.87, 151.21</span>
     </div>
   </div>
@@ -112,7 +112,7 @@
   </div>
   <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,270px),1fr))] gap-4">
     <article
-      class="card-accent bg-(--card) border border-(--line) rounded-[14px] p-[clamp(24px,3vw,32px)] relative overflow-hidden transition-[transform,border-color] duration-[240ms] hover:-translate-y-1 hover:border-(--line-2) rv [--c:var(--color-cobalt)]"
+      class="card-accent bg-(--card) border border-(--line) rounded-[14px] p-[clamp(24px,3vw,32px)] relative overflow-hidden transition-[transform,border-color] duration-[240ms] hover:-translate-y-1 hover:border-(--line-2) rv [--c:var(--cobalt-label)]"
     >
       <div class="font-mono text-[11px] font-bold tracking-[.04em] text-(--c) flex justify-between mb-4.5">
         <span>{m.beaversTag()}</span><span>2019</span>

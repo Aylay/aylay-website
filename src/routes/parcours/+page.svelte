@@ -150,7 +150,7 @@
 
   <div class="fc-grid rv">
     <div class="fc">
-      <h4>{m.fcEdLabel()}</h4>
+      <h3>{m.fcEdLabel()}</h3>
       <ul>
         <li>
           <div class="fc-t">IIM</div>
@@ -170,7 +170,7 @@
       </ul>
     </div>
     <div class="fc">
-      <h4>{m.fcCertLabel()}</h4>
+      <h3>{m.fcCertLabel()}</h3>
       <ul>
         <li>
           <div class="fc-t">{m.fcRgpdName()}</div>

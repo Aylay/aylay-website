@@ -39,25 +39,25 @@
       aria-label={m.ariaNavMain()}
     >
       <a
-        class="nav-link text-cloud/70 hover:text-cloud transition-colors duration-140"
+        class="nav-link text-cloud/90 hover:text-cloud transition-colors duration-140"
         href={localizeHref('/a-propos')}
         aria-current={basePath === '/a-propos' ? 'page' : undefined}
         title={m.navAbout()}
       >{m.navAbout()}</a>
       <a
-        class="nav-link text-cloud/70 hover:text-cloud transition-colors duration-140"
+        class="nav-link text-cloud/90 hover:text-cloud transition-colors duration-140"
         href={localizeHref('/parcours')}
         aria-current={basePath === '/parcours' ? 'page' : undefined}
         title={m.navExperience()}
       >{m.navExperience()}</a>
       <a
-        class="nav-link text-cloud/70 hover:text-cloud transition-colors duration-140"
+        class="nav-link text-cloud/90 hover:text-cloud transition-colors duration-140"
         href={localizeHref('/realisations')}
         aria-current={basePath === '/realisations' ? 'page' : undefined}
         title={m.navWork()}
       >{m.navWork()}</a>
       <a
-        class="nav-link text-cloud/70 hover:text-cloud transition-colors duration-140"
+        class="nav-link text-cloud/90 hover:text-cloud transition-colors duration-140"
         href="#contact"
         title={m.navContact()}
       >{m.navContact()}</a>
@@ -72,7 +72,7 @@
             hreflang={l}
             lang={l}
             data-sveltekit-reload
-            class="{l === current ? 'text-saffron font-bold' : 'text-cloud/60'} hover:text-cloud transition-colors duration-140"
+            class="{l === current ? 'text-saffron font-bold' : 'text-cloud/85'} hover:text-cloud transition-colors duration-140"
             aria-label={l === 'fr' ? 'Français' : 'English'}
             title={l === 'fr' ? 'Français' : 'English'}
             aria-current={l === current ? 'true' : undefined}
@@ -105,7 +105,7 @@
   class:open={menuOpen}
   id="mobile-menu"
   aria-label={m.ariaNavMain()}
-  aria-hidden={menuOpen ? undefined : true}
+  inert={!menuOpen}
 >
   <a
     class="font-display font-semibold text-[23px] text-cloud py-[15px] border-b border-cloud/10 last:border-b-0"

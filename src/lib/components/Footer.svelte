@@ -22,6 +22,7 @@
       <nav class="flex flex-wrap gap-5 text-sm font-medium" aria-label={m.ariaExternalLinks()}>
         <a class="text-(--muted) hover:text-coral transition-colors duration-140" href="https://github.com/aylay" rel="me noopener noreferrer" target="_blank" title={m.linkTitleGithub()}>GitHub</a>
         <a class="text-(--muted) hover:text-coral transition-colors duration-140" href="https://www.linkedin.com/in/lucasattali/" rel="me noopener noreferrer" target="_blank" title={m.linkTitleLinkedin()}>LinkedIn</a>
+        <a class="text-(--muted) hover:text-coral transition-colors duration-140" href="https://www.instagram.com/aylllay/" rel="me noopener noreferrer" target="_blank" title={m.linkTitleInstagram()}>Instagram</a>
         <a class="text-(--muted) hover:text-coral transition-colors duration-140" href="https://beavers-agency.fr/" rel="noopener noreferrer" target="_blank" title={m.linkTitleBeavers()}>Beavers</a>
         <a class="text-(--muted) hover:text-coral transition-colors duration-140" href="https://www.skalp.shop/" rel="noopener noreferrer" target="_blank" title={m.linkTitleSkalp()}>Skalp</a>
       </nav>
