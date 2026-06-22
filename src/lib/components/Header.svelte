@@ -108,25 +108,25 @@
   inert={!menuOpen}
 >
   <a
-    class="font-display font-semibold text-[23px] text-cloud py-[15px] border-b border-cloud/10 last:border-b-0"
+    class="font-display font-semibold text-[23px] text-cloud py-3.75 border-b border-cloud/10 last:border-b-0"
     href={localizeHref('/a-propos')}
     onclick={() => { menuOpen = false; }}
     title={m.navAbout()}
   >{m.navAbout()}</a>
   <a
-    class="font-display font-semibold text-[23px] text-cloud py-[15px] border-b border-cloud/10 last:border-b-0"
+    class="font-display font-semibold text-[23px] text-cloud py-3.75 border-b border-cloud/10 last:border-b-0"
     href={localizeHref('/parcours')}
     onclick={() => { menuOpen = false; }}
     title={m.navExperience()}
   >{m.navExperience()}</a>
   <a
-    class="font-display font-semibold text-[23px] text-cloud py-[15px] border-b border-cloud/10 last:border-b-0"
+    class="font-display font-semibold text-[23px] text-cloud py-3.75 border-b border-cloud/10 last:border-b-0"
     href={localizeHref('/realisations')}
     onclick={() => { menuOpen = false; }}
     title={m.navWork()}
   >{m.navWork()}</a>
   <a
-    class="font-display font-semibold text-[23px] text-cloud py-[15px] border-b border-cloud/10 last:border-b-0"
+    class="font-display font-semibold text-[23px] text-cloud py-3.75 border-b border-cloud/10 last:border-b-0"
     href="#contact"
     onclick={() => { menuOpen = false; }}
     title={m.navContact()}

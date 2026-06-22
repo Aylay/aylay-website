@@ -35,7 +35,7 @@
     }
   }
 
-  const inputClass = 'font-sans text-[15px] text-(--text) bg-(--card) border border-(--line) rounded-[9px] px-[13px] py-[11px] w-full transition-colors duration-140 focus:border-cobalt focus:outline-none';
+  const inputClass = 'font-sans text-[15px] text-(--text) bg-(--card) border border-(--line) rounded-[9px] px-3.25 py-2.75 w-full transition-colors duration-140 focus:border-cobalt focus:outline-none';
   const labelClass = 'flex flex-col gap-1.5 text-[13px] font-medium text-(--muted)';
 </script>
 

@@ -64,16 +64,16 @@
   <div class="wrap">
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2.5 mb-7 text-cloud/90 font-mono text-xs tracking-[.02em] rv">
       <span>{m.heroEyebrow()}</span>
-      <span class="inline-flex items-center gap-[7px]">
+      <span class="inline-flex items-center gap-1.75">
         <span class="w-1.5 h-1.5 rounded-full bg-saffron" aria-hidden="true"></span>
         {m.heroLocation()}
       </span>
     </div>
-    <h1 class="font-display font-bold text-[clamp(56px,15vw,150px)] leading-[.9] tracking-[-0.025em] mb-[30px] rv">Lucas Attali</h1>
+    <h1 class="font-display font-bold text-[clamp(56px,15vw,150px)] leading-[.9] tracking-tight mb-7.5 rv">Lucas Attali</h1>
     <p class="font-display font-semibold text-[clamp(22px,4.6vw,40px)] leading-[1.12] tracking-[-0.015em] max-w-[18ch] mb-9 rv">
       {m.heroLedeA()}<span class="mark">{m.heroLedeMark()}</span>{m.heroLedeB()}
     </p>
-    <blockquote class="border-l-[3px] border-saffron pl-[18px] max-w-[46ch] mb-10 rv">
+    <blockquote class="border-l-[3px] border-saffron pl-4.5 max-w-[46ch] mb-10 rv">
       <p class="text-[clamp(15px,2.1vw,18px)] leading-[1.5] text-cloud/86">{m.quoteText()}</p>
       <cite class="block not-italic font-mono text-[11px] text-cloud/80 mt-2">{m.quoteAuthor()}</cite>
     </blockquote>
@@ -91,7 +91,7 @@
 
 <!-- Rail -->
 <div class="border-b border-(--line)">
-  <div class="wrap flex flex-wrap items-center gap-x-[26px] gap-y-3.5 py-[18px] font-mono text-xs text-(--faint)">
+  <div class="wrap flex flex-wrap items-center gap-x-6.5 gap-y-3.5 py-4.5 font-mono text-xs text-(--faint)">
     <span><b class="text-(--muted) font-normal">Beavers</b> · 2019</span>
     <span><b class="text-(--muted) font-normal">Skalp</b> · 2025</span>
     <span><b class="text-(--muted) font-normal">{m.railDeveloper()}</b></span>
@@ -123,7 +123,7 @@
       aria-hidden="true"
     ><b class="text-saffron font-normal">↗ -33.87, 151.21</b><br />{m.pinSydney()}</div>
     <p class="font-mono text-[11px] tracking-[.12em] text-saffron mb-5">{m.nextLabel()}</p>
-    <h2 class="font-display font-semibold text-[clamp(30px,5.4vw,56px)] leading-[1.02] tracking-[-0.02em] max-w-[16ch] mb-[22px]">{m.nextTitle({ low, high })}</h2>
+    <h2 class="font-display font-semibold text-[clamp(30px,5.4vw,56px)] leading-[1.02] tracking-[-0.02em] max-w-[16ch] mb-5.5">{m.nextTitle({ low, high })}</h2>
     <p class="max-w-[54ch] text-cloud/82 text-[16px]">{m.nextBody()}</p>
   </div>
 </section>

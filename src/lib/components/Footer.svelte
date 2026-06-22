@@ -27,7 +27,7 @@
         <a class="text-(--muted) hover:text-coral transition-colors duration-140" href="https://www.skalp.shop/" rel="noopener noreferrer" target="_blank" title={m.linkTitleSkalp()}>Skalp</a>
       </nav>
 
-      <nav class="flex gap-[10px] font-mono text-xs text-(--faint)" aria-label={m.ariaLegalLinks()}>
+      <nav class="flex gap-2.5 font-mono text-xs text-(--faint)" aria-label={m.ariaLegalLinks()}>
         <a class="hover:text-cobalt transition-colors duration-140" href={localizeHref('/mentions-legales')} title={m.navLegal()}>{m.navLegal()}</a>
         <span aria-hidden="true">·</span>
         <a class="hover:text-cobalt transition-colors duration-140" href={localizeHref('/confidentialite')} title={m.navPrivacy()}>{m.navPrivacy()}</a>
