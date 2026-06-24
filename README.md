@@ -1,65 +1,36 @@
-# lucas-attali.me
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Site personnel bilingue de Lucas Attali (FR par défaut, EN sous `/en`). Direction artistique « Deux Rivages ».
+## Getting Started
 
-## Stack
-
-- **SvelteKit 5** + **Svelte 5** (runes), **TypeScript**
-- **Tailwind 4** (`@tailwindcss/vite`), tokens dans `src/app.css` (`@theme`)
-- **Paraglide-JS** (i18n compile-time, tree-shaké) : messages dans `messages/{fr,en}.json`
-- **adapter-vercel**, sortie 100% statique (toutes les pages `prerender`)
-- Polices auto-hébergées dans `static/fonts/` (Clash Display, General Sans, Space Mono)
-- Aucun CMS, aucun tracking, aucun cookie tiers
-
-## Démarrer
+First, run the development server:
 
 ```bash
-pnpm install
-pnpm dev      # http://localhost:5173
-pnpm build
-pnpm check
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Node >= 22.13 requis (`nvm use 22`). Gestionnaire de paquets : **pnpm**.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Variables d'environnement (Vercel)
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```
-BREVO_API_KEY=...
-CONTACT_TO=lucas.attali@gmail.com
-CONTACT_FROM=no-reply@lucas-attali.me
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-L'endpoint `src/routes/api/contact/+server.ts` envoie via Brevo, sans stockage. `prerender = false` sur cette route uniquement.
+## Learn More
 
-## Arborescence
+To learn more about Next.js, take a look at the following resources:
 
-```
-messages/            fr.json, en.json  (source des traductions)
-project.inlang/      config i18n (baseLocale fr, locales fr+en)
-static/
-  fonts/             polices woff/woff2 auto-hébergées
-  robots.txt
-  sitemap.xsl
-src/
-  app.html           %lang% + anti-FOUC thème (dark par défaut)
-  app.css            tokens Deux Rivages + design system
-  hooks.ts           reroute (retire le préfixe de langue)
-  hooks.server.ts    paraglideMiddleware (locale par requête)
-  lib/
-    components/
-      Header.svelte, Footer.svelte, ContactForm.svelte
-      Button.svelte, SectionHeader.svelte, ArticleCard.svelte
-      PageHero.svelte, TimelineItem.svelte
-      MetricCard.svelte, FormationItem.svelte
-  routes/
-    +layout.*        shell + prerender global
-    +page.svelte     Accueil
-    a-propos/        À propos
-    parcours/        Parcours & Stack
-    realisations/    Réalisations
-    confidentialite/ noindex
-    mentions-legales/ noindex
-    sitemap.xml/     sitemap prerendé avec hreflang
-    api/contact/     endpoint Brevo (prerender false)
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
