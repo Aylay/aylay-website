@@ -49,7 +49,7 @@ export default async function LocaleLayout({
       { "@type": "Organization", name: "Beavers", url: "https://beavers-agency.fr" },
       { "@type": "Organization", name: "Skalp", url: "https://www.skalp.shop" },
     ],
-    knowsAbout: ["SvelteKit", "Next.js", "React", "Svelte", "TypeScript", "SEO", "E-commerce", "Netlinking"],
+    knowsAbout: ["Next.js", "React", "SvelteKit", "TypeScript", "SEO", "E-commerce", "Netlinking"],
     sameAs: [
       "https://github.com/aylay",
       "https://www.linkedin.com/in/lucasattali/",

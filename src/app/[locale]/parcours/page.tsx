@@ -58,7 +58,9 @@ export default function Parcours({
           <p className="font-mono text-[11px] tracking-[.12em] text-saffron mb-2">{t("stackLabel")}</p>
           <h2 className="font-display font-semibold text-[clamp(26px,4.4vw,42px)] tracking-[-0.02em] mb-6">{t("stackH2")}</h2>
           <div className="chips">
+            <span>SvelteKit</span>
             <span>Svelte 5</span>
+            <span>Next.js</span>
             <span>React</span>
             <span>TypeScript</span>
             <span>Tailwind</span>
