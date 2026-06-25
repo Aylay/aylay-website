@@ -15,41 +15,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-
-  const personLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Lucas Attali",
-    alternateName: "Aylay",
-    jobTitle: locale === "fr" ? "Développeur fullstack, cofondateur" : "Fullstack developer, co-founder",
-    url: "https://lucas-attali.me",
-    image: `https://lucas-attali.me/img/og-image-${locale}.png`,
-    address: { "@type": "PostalAddress", addressLocality: "Roquebrune-sur-Argens", addressRegion: "PACA", addressCountry: "FR" },
-    worksFor: [
-      { "@type": "Organization", name: "Beavers", url: "https://beavers-agency.fr" },
-      { "@type": "Organization", name: "Skalp", url: "https://www.skalp.shop" },
-    ],
-    knowsAbout: ["SvelteKit", "TypeScript", "SEO", "Développement web", "E-commerce", "Netlinking"],
-    sameAs: [
-      "https://github.com/aylay",
-      "https://www.linkedin.com/in/lucasattali/",
-      "https://beavers-agency.fr/",
-      "https://www.skalp.shop/",
-      "https://www.instagram.com/aylllay/",
-    ],
-  };
-
-  return {
-    ...buildMetadata(locale, {
-      title: t("homeTitle"),
-      description: t("homeDescription"),
-      path: "",
-      ogAlt: t("ogAlt"),
-    }),
-    other: {
-      "application/ld+json": JSON.stringify(personLd),
-    }
-  }
+  
+  return buildMetadata(locale, {
+    title: t("homeTitle"),
+    description: t("homeDescription"),
+    path: "",
+    ogAlt: t("ogAlt"),
+  });
 }
 
 export default function Home({ params }: { params: Promise<{ locale: string }> }) {

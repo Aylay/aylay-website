@@ -9,7 +9,7 @@ export function buildMetadata(
   const fr = opts.path ? `${BASE}${opts.path}` : `${BASE}/`;
   const en = opts.path ? `${BASE}/en${opts.path}` : `${BASE}/en`;
   const canonical = locale === "en" ? en : fr;
-  const og = `/img/og-image-${locale}.png`;
+  const og = `/og-image-${locale}.png`;
 
   return {
     title: opts.title,
