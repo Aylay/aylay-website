@@ -9,6 +9,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "../globals.css";
 
+import type { Metadata, Viewport } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://lucas-attali.me"),
+  icons: { icon: "/favicon.svg" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1F3DE6",
+};
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

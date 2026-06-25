@@ -59,5 +59,16 @@
     "sending": "Sending...",
     "success": "Thanks, your message is on its way. I'll get back to you very soon.",
     "error": "Sending failed. Please try again, or reach me on LinkedIn."
+  },
+  "meta": {
+    "homeTitle": "Lucas Attali · Fullstack developer and entrepreneur",
+    "homeDescription": "Lucas Attali, fullstack developer between the Mediterranean and the Pacific. Co-founder of Beavers and Skalp. Next, SvelteKit, TypeScript, SEO, web development and e-commerce.",
+    "aboutTitle": "About · Lucas Attali",
+    "aboutDescription": "Fullstack developer and entrepreneur in the south of France, co-founder of Beavers and Skalp, Sydney on the horizon. Every detail held, from mockup to production.",
+    "experienceTitle": "Experience · Lucas Attali",
+    "experienceDescription": "Lucas Attali's career: more than ten years in web, from technical project manager to agency co-founder. SEO, development, Next, SvelteKit and TypeScript stack.",
+    "workTitle": "Work · Lucas Attali",
+    "workDescription": "Lucas Attali's work: SEO and development results at Beavers, the build of Skalp, and a netlinking SaaS in the works.",
+    "ogAlt": "Lucas Attali"
   }
 }

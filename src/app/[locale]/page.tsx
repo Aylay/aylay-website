@@ -4,6 +4,24 @@ import { useTranslations } from "next-intl";
 import Button from "@/components/Button";
 import SectionHeader from "@/components/SectionHeader";
 import ArticleCard from "@/components/ArticleCard";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { buildMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return buildMetadata(locale, {
+    title: t("homeTitle"),
+    description: t("homeDescription"),
+    path: "",
+    ogAlt: t("ogAlt"),
+  });
+}
 
 export default function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
@@ -15,8 +33,35 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
   const low = Math.max(1, 2031 - year);
   const high = Math.max(low + 1, 2033 - year);
 
+  const personLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Lucas Attali",
+    alternateName: "Aylay",
+    jobTitle: locale === "fr" ? "Développeur fullstack, cofondateur" : "Fullstack developer, co-founder",
+    url: "https://lucas-attali.me",
+    image: `https://lucas-attali.me/img/og-image-${locale}.png`,
+    address: { "@type": "PostalAddress", addressLocality: "Roquebrune-sur-Argens", addressRegion: "PACA", addressCountry: "FR" },
+    worksFor: [
+      { "@type": "Organization", name: "Beavers", url: "https://beavers-agency.fr" },
+      { "@type": "Organization", name: "Skalp", url: "https://www.skalp.shop" },
+    ],
+    knowsAbout: ["SvelteKit", "TypeScript", "SEO", "Développement web", "E-commerce", "Netlinking"],
+    sameAs: [
+      "https://github.com/aylay",
+      "https://www.linkedin.com/in/lucasattali/",
+      "https://beavers-agency.fr/",
+      "https://www.skalp.shop/",
+      "https://www.instagram.com/aylllay/",
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+      />
       {/* Hero */}
       <section className="bg-cobalt text-cloud pt-[clamp(56px,11vw,116px)] overflow-hidden">
         <div className="wrap">
