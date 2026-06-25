@@ -60,7 +60,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+        // eslint-disable-next-line react/no-danger
+        async
+        src=" "
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personLd).replace(/</g, "\\u003c"),
+        }}
       />
       {/* Hero */}
       <section className="bg-cobalt text-cloud pt-[clamp(56px,11vw,116px)] overflow-hidden">
