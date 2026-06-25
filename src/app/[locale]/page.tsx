@@ -15,23 +15,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-  return buildMetadata(locale, {
-    title: t("homeTitle"),
-    description: t("homeDescription"),
-    path: "",
-    ogAlt: t("ogAlt"),
-  });
-}
-
-export default function Home({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = use(params);
-  setRequestLocale(locale);
-  const t = useTranslations("home");
-
-  // Compte à rebours Sydney (fenêtre 2031-2033), calculé au build
-  const year = new Date().getFullYear();
-  const low = Math.max(1, 2031 - year);
-  const high = Math.max(low + 1, 2033 - year);
 
   const personLd = {
     "@context": "https://schema.org",
@@ -56,17 +39,31 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
     ],
   };
 
+  return {
+    ...buildMetadata(locale, {
+      title: t("homeTitle"),
+      description: t("homeDescription"),
+      path: "",
+      ogAlt: t("ogAlt"),
+    }),
+    other: {
+      "application/ld+json": JSON.stringify(personLd),
+    }
+  }
+}
+
+export default function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = use(params);
+  setRequestLocale(locale);
+  const t = useTranslations("home");
+
+  // Compte à rebours Sydney (fenêtre 2031-2033), calculé au build
+  const year = new Date().getFullYear();
+  const low = Math.max(1, 2031 - year);
+  const high = Math.max(low + 1, 2033 - year);
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        async
-        src=" "
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(personLd).replace(/</g, "\\u003c"),
-        }}
-      />
       {/* Hero */}
       <section className="bg-cobalt text-cloud pt-[clamp(56px,11vw,116px)] overflow-hidden">
         <div className="wrap">
