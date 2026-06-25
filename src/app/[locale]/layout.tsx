@@ -41,6 +41,7 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${clash.variable} ${general.variable} ${spaceMono.variable}`}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <body>
         <NextIntlClientProvider>

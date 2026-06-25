@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from "./theme";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -10,7 +10,7 @@ export default function Header() {
   const t = useTranslations("nav");
   const pathname = usePathname(); // sans préfixe de locale, ex "/a-propos"
   const locale = useLocale();
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, toggle } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -110,12 +110,12 @@ export default function Header() {
 
             <button
               type="button"
-              onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+              onClick={toggle}
               aria-label={t("ariaTheme")}
               title={t("ariaTheme")}
               className="bg-transparent border border-cloud/30 text-cloud w-7.5 h-7.5 rounded-[7px] cursor-pointer text-sm grid place-items-center transition-colors duration-140 hover:bg-cloud/10"
             >
-              {mounted ? (resolvedTheme === "light" ? "☾" : "☀") : ""}
+              {mounted ? (theme === "light" ? "☾" : "☀") : ""}
             </button>
 
             <button
