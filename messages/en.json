@@ -1,0 +1,63 @@
+{
+  "home": {
+    "heroEyebrow": "fullstack developer, aka aylay",
+    "heroLocation": "Roquebrune-sur-Argens, France",
+    "heroLede": "I build web products where every <mark>detail</mark> holds.",
+    "quoteText": "“Details make perfection, and perfection is not a detail.”",
+    "quoteAuthor": "Leonardo da Vinci",
+    "ctaContact": "Get in touch",
+    "ctaJourney": "See the journey",
+    "pinSydney": "Sydney, Australia",
+    "railDeveloper": "Developer",
+    "whatTitle": "What I do",
+    "beaversTag": "agency",
+    "beaversBody": "Co-founded with my wife. SEO (articles, netlinking), web development and GTM tracking, for agencies and clients.",
+    "skalpTag": "e-commerce",
+    "skalpBody": "Co-founded with my wife. Single-product e-commerce, built and operated end to end.",
+    "codeTag": "dev",
+    "codeTag2": "in the works",
+    "codeTitle": "My product",
+    "codeBody": "A SaaS for netlinking specialists. Not out yet, built with my usual stack.",
+    "nextLabel": "And next?",
+    "nextTitle": "A family move to Sydney, on a {low} to {high} year horizon.",
+    "nextBody": "That's the strategic reason everything I run is location-independent, and why this site is bilingual, built for an Australian network as much as a French one."
+  },
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "work": "Work",
+    "contact": "Contact",
+    "skip": "Skip to content",
+    "ariaHome": "Lucas Attali, home",
+    "ariaNav": "Main navigation",
+    "ariaTheme": "Toggle colour theme",
+    "titleHome": "Go to homepage"
+  },
+  "footer": {
+    "ariaHome": "Lucas Attali, home",
+    "titleHome": "Go to homepage",
+    "ariaExternal": "External links",
+    "ariaLegal": "Legal information",
+    "github": "Lucas Attali on GitHub",
+    "linkedin": "Lucas Attali on LinkedIn",
+    "instagram": "Lucas Attali on Instagram",
+    "beavers": "Visit Beavers Agency website",
+    "skalp": "Visit Skalp shop",
+    "legal": "Legal notice",
+    "privacy": "Privacy",
+    "location": "Roquebrune-sur-Argens, France",
+    "heading": "Get in touch",
+    "intro": "A project, a question, just want to talk? Write to me, I reply quickly."
+  },
+  "form": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Thanks, your message is on its way. I'll get back to you very soon.",
+    "error": "Sending failed. Please try again, or reach me on LinkedIn."
+  }
+}
