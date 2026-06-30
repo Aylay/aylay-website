@@ -172,5 +172,12 @@
     "nlLabel": "produit perso · en préparation",
     "nlH": "Un SaaS pour les spécialistes du netlinking.",
     "nlP": "Mon produit du moment : un outil B2B pour gérer des campagnes de netlinking. Pas encore sorti, construit avec la même stack que le reste."
+  },
+  "notFound": {
+    "code": "erreur 404",
+    "title": "Cette page a quitté le rivage.",
+    "lede": "L'adresse que vous cherchez n'existe pas, ou plus. Elle a peut-être navigué ailleurs.",
+    "home": "Retour à l'accueil",
+    "work": "Voir les réalisations"
   }
 }

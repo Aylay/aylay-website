@@ -172,5 +172,12 @@
     "nlLabel": "own product · in the works",
     "nlH": "A SaaS for netlinking specialists.",
     "nlP": "My current product: a B2B tool to manage netlinking campaigns. Not released yet, built with the same stack as the rest."
+  },
+  "notFound": {
+    "code": "error 404",
+    "title": "This page has left the shore.",
+    "lede": "The address you're looking for doesn't exist, or no longer does. It may have sailed elsewhere.",
+    "home": "Back home",
+    "work": "See the work"
   }
 }
