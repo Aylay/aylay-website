@@ -12,12 +12,14 @@ export default function ArticleCard({
   title,
   color,
   children,
+  cta,
 }: {
   tag: string;
   year: string;
   title: string;
   color: Color;
   children: React.ReactNode;
+  cta?: string;
 }) {
   return (
     <article
@@ -30,6 +32,11 @@ export default function ArticleCard({
       </div>
       <h3 className="font-display font-semibold text-[26px] tracking-[-0.01em] mb-2.5">{title}</h3>
       <p className="text-[15px] leading-[1.6] text-muted">{children}</p>
+      {cta && (
+        <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[12px] font-bold text-(--c-ink)">
+          {cta} <span aria-hidden="true">→</span>
+        </span>
+      )}
     </article>
   );
 }

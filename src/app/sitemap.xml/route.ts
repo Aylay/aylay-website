@@ -1,7 +1,7 @@
 export const dynamic = "force-static"; // prérendu au build, servi en statique
 
 const base = "https://lucas-attali.me";
-const paths = ["", "a-propos", "parcours", "realisations"];
+const paths = ["", "a-propos", "parcours", "realisations", "projets/rally"];
 
 function entry(fr: string, en: string): string {
   const alts = [
