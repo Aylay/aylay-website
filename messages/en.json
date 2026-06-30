@@ -24,7 +24,8 @@
     "rallyCardTag": "Project · live demo",
     "rallyCardYear": "live",
     "rallyCardBody": "A real-time match companion: live updates, predictions for fun and a leaderboard. Playable demo on a replayable France vs Australia, Vercel front and AWS backend.",
-    "rallyCardAria": "Rally, view the project"
+    "rallyCardAria": "Rally, view the project",
+    "rallyCardLink": "view the project"
   },
   "nav": {
     "about": "About",

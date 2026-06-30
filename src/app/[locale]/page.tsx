@@ -97,7 +97,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             aria-label={t("rallyCardAria")}
             className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-ink"
           >
-            <ArticleCard tag={t("rallyCardTag")} year={t("rallyCardYear")} title="Rally" color="cobalt">
+            <ArticleCard tag={t("rallyCardTag")} year={t("rallyCardYear")} title="Rally" color="cobalt" cta={t("rallyCardLink")}>
               {t("rallyCardBody")}
             </ArticleCard>
           </Link>

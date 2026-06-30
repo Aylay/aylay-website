@@ -24,7 +24,8 @@
     "rallyCardTag": "Projet · démo live",
     "rallyCardYear": "live",
     "rallyCardBody": "Un companion de match en temps réel : suivi live, pronostics pour le fun et classement. Démo jouable sur un France-Australie rejouable, front Vercel et backend AWS.",
-    "rallyCardAria": "Rally, voir le projet"
+    "rallyCardAria": "Rally, voir le projet",
+    "rallyCardLink": "voir le projet"
   },
   "nav": {
     "about": "À propos",
