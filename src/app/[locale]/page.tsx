@@ -7,6 +7,7 @@ import ArticleCard from "@/components/ArticleCard";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { buildMetadata } from "@/lib/seo";
+import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({
   params,
@@ -91,6 +92,15 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
           <ArticleCard tag={t("codeTag")} year={t("codeTag2")} title={t("codeTitle")} color="teal">
             {t("codeBody")}
           </ArticleCard>
+          <Link
+            href="/projets/rally"
+            aria-label={t("rallyCardAria")}
+            className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-ink"
+          >
+            <ArticleCard tag={t("rallyCardTag")} year={t("rallyCardYear")} title="Rally" color="cobalt">
+              {t("rallyCardBody")}
+            </ArticleCard>
+          </Link>
         </div>
       </section>
 

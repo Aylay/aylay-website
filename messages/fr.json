@@ -20,7 +20,11 @@
     "codeBody": "Un SaaS pour les spécialistes du netlinking. Pas encore sorti, construit avec ma stack habituelle.",
     "nextLabel": "Et demain ?",
     "nextTitle": "Cap sur Sydney, à l'horizon {low} à {high} ans.",
-    "nextBody": "C'est la raison stratégique pour laquelle tout ce que je pilote est location-independent, et pourquoi ce site est bilingue, pensé autant pour un réseau australien que français."
+    "nextBody": "C'est la raison stratégique pour laquelle tout ce que je pilote est location-independent, et pourquoi ce site est bilingue, pensé autant pour un réseau australien que français.",
+    "rallyCardTag": "Projet · démo live",
+    "rallyCardYear": "live",
+    "rallyCardBody": "Un companion de match en temps réel : suivi live, pronostics pour le fun et classement. Démo jouable sur un France-Australie rejouable, front Vercel et backend AWS.",
+    "rallyCardAria": "Rally, voir le projet"
   },
   "nav": {
     "about": "À propos",
@@ -69,7 +73,9 @@
     "experienceDescription": "Le parcours de Lucas Attali : plus de dix ans de web, du poste de chef de projet à la cofondation d'agence. SEO, développement, stack Next.js, React et SvelteKit.",
     "workTitle": "Réalisations · Lucas Attali",
     "workDescription": "Réalisations de Lucas Attali : résultats SEO et développement chez Beavers, la construction de Skalp, et un SaaS de netlinking en préparation.",
-    "ogAlt": "Lucas Attali"
+    "ogAlt": "Lucas Attali",
+    "rallyTitle": "Rally, companion de match temps réel · Lucas Attali",
+    "rallyDescription": "Un companion de match en temps réel : suivi live, pronostics pour le fun et classement. Démo jouable, front Vercel et backend AWS event-driven (Lambda, WebSocket, DynamoDB)."
   },
   "about": {
     "aboutEyebrow": "à propos · alias aylay",
@@ -179,5 +185,35 @@
     "lede": "L'adresse que vous cherchez n'existe pas, ou plus. Elle a peut-être navigué ailleurs.",
     "home": "Retour à l'accueil",
     "work": "Voir les réalisations"
+  },
+  "rally": {
+    "eyebrow": "projet personnel · démo jouable",
+    "lede": "Un companion de match en temps réel. Tu suis le jeu coup par coup, tu fais des pronostics pour le fun, et tu grimpes au classement. La première démo tourne sur un match rejouable : France-Australie, Coupe du monde FIBA 2019.",
+    "ctaDemo": "Lancer la démo",
+    "ctaBack": "Voir les réalisations",
+    "prodTitle": "Le produit",
+    "prodIntro": "Pas de streaming, juste l'essentiel du match en direct et de quoi jouer avec. L'idée : transformer un spectateur passif en joueur actif, sans argent, juste pour le fun.",
+    "f1Desc": "score, quart-temps et chrono, dérivés du moteur en continu",
+    "f2Desc": "la dynamique du match d'un coup d'oeil, la signature visuelle",
+    "f3Desc": "qui marque les prochains points, qui gagne le quart-temps",
+    "f4Desc": "ta progression face aux bots, et bientôt face aux autres",
+    "f5Desc": "le fil des actions, en temps réel",
+    "archLabel": "l'architecture",
+    "archTitle": "Du temps réel, proprement distribué.",
+    "archIntro": "Front statique servi par le CDN, backend AWS event-driven. Le coeur est un moteur événementiel : chaque action du match est un évènement, et tout l'état (score, stats, classement) se dérive de la suite d'évènements. La source de données est découplée, donc passer du replay au temps réel ne touche pas la logique métier.",
+    "awsLambda": "le cerveau, applique chaque évènement et calcule l'état",
+    "awsWs": "le tuyau temps réel vers le navigateur",
+    "awsDdb": "la mémoire : pseudos, scores, progression",
+    "awsEb": "le battement qui fait avancer le match",
+    "awsOps": "permissions au plus juste, logs et observabilité",
+    "awsFront": "le front statique, rendu au build et hydraté côté client",
+    "engineNote": "Moteur écrit en TypeScript pur, testé hors AWS. On remplacera la source de données par le WebSocket sans réécrire la logique.",
+    "f1Label": "Scoreboard live",
+    "f2Label": "Barre de momentum",
+    "f3Label": "Pronostics pour le fun",
+    "f4Label": "Classement et badges",
+    "f5Label": "Play-by-play",
+    "statusTitle": "V1 jouable, déjà en ligne.",
+    "statusBody": "La démo tourne sur un match figé France-Australie, ce qui la découple de toute API sportive. La suite : une vraie source de données en direct, des comptes joueurs, et plus de badges. C'est un terrain de jeu pour pousser l'archi temps réel et AWS en conditions réelles."
   }
 }

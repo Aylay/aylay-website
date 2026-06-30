@@ -22,6 +22,6 @@ export default function Button({
   return href.startsWith("/") ? (
     <Link href={href} className={cls}>{children}</Link>
   ) : (
-    <a href={href} className={cls}>{children}</a>
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{children}</a>
   );
 }
