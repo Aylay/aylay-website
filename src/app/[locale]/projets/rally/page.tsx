@@ -44,10 +44,10 @@ export default function RallyProject({
   // Libellés tech en dur (noms de produits), descriptions traduites
   const stack = [
     ["Lambda", t("awsLambda")],
-    ["API Gateway WebSocket", t("awsWs")],
     ["DynamoDB", t("awsDdb")],
-    ["EventBridge Scheduler", t("awsEb")],
+    ["EventBridge", t("awsEb")],
     ["IAM + CloudWatch", t("awsOps")],
+    ["SAM · eu-west-3", t("awsIac")],
     ["Vercel + Next.js", t("awsFront")],
   ] as const;
 
