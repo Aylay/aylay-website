@@ -25,7 +25,11 @@
     "rallyCardYear": "live",
     "rallyCardBody": "A real-time match companion: live updates, predictions for fun and a leaderboard. Playable demo on a replayable France vs Australia, Vercel front and AWS backend.",
     "rallyCardAria": "Rally, view the project",
-    "rallyCardLink": "view the project"
+    "rallyCardLink": "view the project",
+    "beaversCardLink": "view the site",
+    "beaversCardAria": "Beavers, visit the site",
+    "skalpCardLink": "view the shop",
+    "skalpCardAria": "Skalp, visit the shop"
   },
   "nav": {
     "about": "About",
@@ -163,7 +167,13 @@
     "realBeaversNote": "Results achieved with the Beavers team, on the SEO and development I lead.",
     "realSkalpLabel": "own product",
     "realSkalpH2": "Skalp, a single-product e-commerce, built end to end.",
-    "realSkalpP": "Co-founded with my wife. A single product (beanies), designed and built entirely by hand, from the catalogue to shipping. The shop isn't open yet, so here I show the build, not sales figures.",
+    "realSkalpP": "Co-founded with my wife. A single product (beanies), designed and built entirely by hand, from the catalogue to shipping. The shop has been live since October 2025.",
+    "beaversCta": "Visit the site",
+    "skalpCta": "Visit the shop",
+    "rallyLabel": "own product · live demo",
+    "rallyH": "Rally, a real-time match companion.",
+    "rallyP": "My technical playground: live match tracking, predictions for fun and a leaderboard, on a static front and an event-driven AWS backend. Playable demo on a replayable France vs Australia.",
+    "rallyCta": "View the project",
     "buildStorefront": "storefront",
     "buildCatalogue": "catalogue & content",
     "buildPayment": "payment",

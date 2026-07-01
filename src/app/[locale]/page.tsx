@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-  
+
   return buildMetadata(locale, {
     title: t("homeTitle"),
     description: t("homeDescription"),
@@ -83,15 +83,38 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       <section className="py-[clamp(56px,10vw,104px)] wrap">
         <SectionHeader number="01" title={t("whatTitle")} className="mb-11" />
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,270px),1fr))] gap-4">
-          <ArticleCard tag={t("beaversTag")} year="2019" title="Beavers" color="cobalt">
-            {t("beaversBody")}
-          </ArticleCard>
-          <ArticleCard tag={t("skalpTag")} year="2025" title="Skalp" color="coral">
-            {t("skalpBody")}
-          </ArticleCard>
+          {/* Beavers : renvoie vers le site de l'agence */}
+          <a
+            href="https://beavers-agency.fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("beaversCardAria")}
+            className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-ink"
+          >
+            <ArticleCard tag={t("beaversTag")} year="2019" title="Beavers" color="cobalt" cta={t("beaversCardLink")}>
+              {t("beaversBody")}
+            </ArticleCard>
+          </a>
+
+          {/* Skalp : renvoie vers la boutique */}
+          <a
+            href="https://www.skalp.shop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("skalpCardAria")}
+            className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-coral-ink"
+          >
+            <ArticleCard tag={t("skalpTag")} year="2025" title="Skalp" color="coral" cta={t("skalpCardLink")}>
+              {t("skalpBody")}
+            </ArticleCard>
+          </a>
+
+          {/* Netlinking SaaS : en préparation, pas de lien */}
           <ArticleCard tag={t("codeTag")} year={t("codeTag2")} title={t("codeTitle")} color="teal">
             {t("codeBody")}
           </ArticleCard>
+
+          {/* Rally : renvoie vers la fiche projet interne */}
           <Link
             href="/projets/rally"
             aria-label={t("rallyCardAria")}

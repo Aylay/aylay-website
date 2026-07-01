@@ -72,6 +72,9 @@ export default function Realisations({
           <MetricCard num="GTM" label={t("mDevGtmLbl")} tag={t("mDevGtmTag")} />
         </div>
         <p className="font-mono text-[11px] text-faint mt-5.5 rv">{t("realBeaversNote")}</p>
+        <div className="mt-6 rv">
+          <Button href="https://beavers-agency.fr/">{t("beaversCta")}</Button>
+        </div>
       </section>
 
       {/* Skalp : bande corail */}
@@ -87,6 +90,9 @@ export default function Realisations({
                 <div className="text-[13px] text-white/82 mt-0.5">{desc}</div>
               </div>
             ))}
+          </div>
+          <div className="mt-7">
+            <Button href="https://www.skalp.shop/" variant="secondary-cobalt">{t("skalpCta")}</Button>
           </div>
         </div>
       </section>
@@ -107,6 +113,16 @@ export default function Realisations({
               <div className="font-mono text-[12px] text-cloud/82 mt-2 max-w-[22ch]">{t("jcStat2Lbl")}</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Rally : bande cobalt, renvoie vers la fiche projet */}
+      <section className="bg-cobalt text-cloud">
+        <div className="wrap py-[clamp(48px,8vw,88px)] rv">
+          <p className="font-mono text-[11px] tracking-[.12em] text-saffron mb-2">{t("rallyLabel")}</p>
+          <h2 className="font-display font-semibold text-[clamp(26px,4.6vw,46px)] tracking-[-0.02em] mb-4.5 max-w-[18ch]">{t("rallyH")}</h2>
+          <p className="text-cloud/92 max-w-[62ch] mb-6.5">{t("rallyP")}</p>
+          <Button href="/projets/rally">{t("rallyCta")}</Button>
         </div>
       </section>
 

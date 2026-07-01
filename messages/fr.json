@@ -25,7 +25,11 @@
     "rallyCardYear": "live",
     "rallyCardBody": "Un companion de match en temps réel : suivi live, pronostics pour le fun et classement. Démo jouable sur un France-Australie rejouable, front Vercel et backend AWS.",
     "rallyCardAria": "Rally, voir le projet",
-    "rallyCardLink": "voir le projet"
+    "rallyCardLink": "voir le projet",
+    "beaversCardLink": "voir le site",
+    "beaversCardAria": "Beavers, voir le site",
+    "skalpCardLink": "voir la boutique",
+    "skalpCardAria": "Skalp, voir la boutique"
   },
   "nav": {
     "about": "À propos",
@@ -163,7 +167,13 @@
     "realBeaversNote": "Résultats obtenus avec l'équipe Beavers, sur le SEO et le développement que je porte.",
     "realSkalpLabel": "produit perso",
     "realSkalpH2": "Skalp, un e-commerce mono-produit, construit de bout en bout.",
-    "realSkalpP": "Cofondé avec mon épouse. Un mono-produit (des bonnets), pensé et fabriqué entièrement à la main, du catalogue jusqu'à l'expédition. La boutique n'est pas encore ouverte, donc ici je montre la fabrication, pas des chiffres de vente.",
+    "realSkalpP": "Cofondé avec mon épouse. Un mono-produit (des bonnets), pensé et fabriqué entièrement à la main, du catalogue jusqu'à l'expédition. La boutique est en ligne depuis octobre 2025.",
+    "beaversCta": "Voir le site",
+    "skalpCta": "Voir la boutique",
+    "rallyLabel": "produit perso · démo live",
+    "rallyH": "Rally, un companion de match en temps réel.",
+    "rallyP": "Mon terrain de jeu technique : suivi de match live, pronostics pour le fun et classement, sur un front statique et un backend AWS event-driven. Démo jouable sur un France-Australie rejouable.",
+    "rallyCta": "Voir le projet",
     "buildStorefront": "la boutique",
     "buildCatalogue": "catalogue & contenu",
     "buildPayment": "paiement",
