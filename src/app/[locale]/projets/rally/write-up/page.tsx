@@ -75,7 +75,7 @@ export default function RallyWriteUp({
 
         <h2 className={h2}>The 30-second version</h2>
         <p className={p}>
-          Rally replays the 2019 FIBA World Cup bronze medal game (France, Australia) as a live experience. Everyone who opens the page sees the exact same second of the match. You join with a nickname, you see who else is watching, you make predictions on key moments, and you climb a live leaderboard against other visitors and three CPU bots.
+          Rally replays the 2019 FIBA World Cup bronze medal game (France vs Australia) as a live experience. Everyone who opens the page sees the exact same second of the match. You join with a nickname, you see who else is watching, you make predictions on key moments, and you climb a live leaderboard against other visitors and three CPU bots.
         </p>
         <p className={p}>
           It looks like a classic client-server app. It isn&apos;t. The server never computes a score, never ticks a clock, and stores almost nothing. Two design rules drive the whole system:
@@ -111,7 +111,7 @@ sequence   = within < playMs
           The match &quot;runs&quot; 24/7 at zero cost, because it doesn&apos;t run at all: it&apos;s derived on demand. The loop wraps instantly, there&apos;s no drift, and there&apos;s nothing to crash.
         </p>
         <p className={p}>
-          Clients sync through a single public GET (a Lambda Function URL) that returns the anchor plus <code className={code}>serverNow</code>. The browser computes <code className={code}>offset = serverNow − Date.now()</code> once, then derives everything from <code className={code}>Date.now() + offset</code>. The client&apos;s <code className={code}>setInterval</code> doesn&apos;t own any state, it just repaints from the shared clock. I verified it the honest way: three browsers side by side, same sequence, every tick.
+          Clients sync through a single public GET (a Lambda Function URL) that returns the anchor plus <code className={code}>serverNow</code>. The browser computes <code className={code}>offset = serverNow − Date.now()</code> once, then derives everything from <code className={code}>Date.now() + offset</code>. The client&apos;s <code className={code}>setInterval</code>&nbsp;doesn&apos;t own any state, it just repaints from the shared clock. I verified it the honest way: three browsers side by side, same sequence, every tick.
         </p>
         <p className={p}>
           One guardian Lambda runs hourly via EventBridge, with a single job: make sure the anchor exists (an idempotent conditional write). In V1 it&apos;s a safety net. In V2, when Rally ingests real NBA feeds, that seam becomes the match-transition logic.
@@ -129,10 +129,10 @@ sequence   = within < playMs
           <li><strong className="font-semibold">Picks:</strong> who chose what, on which prediction, in which loop.</li>
         </ul>
         <p className={p}>
-          Everything downstream (bot picks, correct answers, points, ranks) every client computes locally, and they all get the same result. Three details make that possible.
+          Everything downstream (bot picks, correct answers, points, ranks), every client computes locally, and they all get the same result. Three details make that possible.
         </p>
         <p className={p}>
-          <strong className="font-semibold">Identity is the connection.</strong> When you send a pick, the server never trusts a name inside the message. It looks up the nickname attached to your <code className={code}>connectionId</code> and stamps it on the broadcast. You physically cannot pick as someone else, because you can only speak through your own socket. That&apos;s V1 anti-cheat for free, by construction.
+          <strong className="font-semibold">Identity is the connection.</strong> When you send a pick, the server never trusts a name inside the message. It looks up the nickname attached to your <code className={code}>connectionId</code>&nbsp;and stamps it on the broadcast. You physically cannot pick as someone else, because you can only speak through your own socket. That&apos;s V1 anti-cheat for free, by construction.
         </p>
         <p className={p}>
           <strong className="font-semibold">Nickname uniqueness is an atomic lock.</strong> Two people claiming &quot;cobra&quot; in the same millisecond is a textbook race. I don&apos;t solve it in code, DynamoDB does: the <code className={code}>join</code> route writes an item keyed by the name with <code className={code}>attribute_not_exists</code>. Conditional writes on the same key are serialized by the engine, so there are never two owners. The loser gets a <code className={code}>name_taken</code> message and picks another name. Disconnect deletes the lock.
