@@ -51,7 +51,7 @@ export default function RallyWriteUp({
 
   return (
     <section className="wrap py-[clamp(56px,10vw,120px)]">
-      <article className="max-w-[70ch] mx-auto">
+      <article className="max-w-[70ch] mx-auto" lang="en">
         <Link href="/projets/rally" locale="en" className="inline-flex items-center gap-1.5 font-mono text-[12px] text-cobalt-ink mb-9 hover:gap-2.5 transition-[gap]"
         >
           <span aria-hidden="true">←</span> Rally
