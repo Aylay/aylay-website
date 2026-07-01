@@ -226,6 +226,7 @@
     "f4Label": "Leaderboard and badges",
     "f5Label": "Play-by-play",
     "statusTitle": "V1 complete, live.",
-    "statusBody": "V1 runs on a fixed France vs Australia match, which decouples it from any sports API. It's all there already: shared clock, live player presence, and a multiplayer leaderboard where everyone sees the same result. Next: a real sports data source, player accounts and more badges. It's my playground to push real time and AWS in real conditions."
+    "statusBody": "V1 runs on a fixed France vs Australia match, which decouples it from any sports API. It's all there already: shared clock, live player presence, and a multiplayer leaderboard where everyone sees the same result. Next: a real sports data source, player accounts and more badges. It's my playground to push real time and AWS in real conditions.",
+    "writeupCta": "Read the full technical write-up"
   }
 }

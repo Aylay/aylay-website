@@ -226,6 +226,7 @@
     "f4Label": "Classement et badges",
     "f5Label": "Play-by-play",
     "statusTitle": "V1 complète, en ligne.",
-    "statusBody": "La V1 tourne sur un match figé France-Australie, ce qui la découple de toute API sportive. Tout est déjà là : horloge partagée, présence des joueurs en direct, et un classement multijoueur où chacun voit le même résultat. La suite : une vraie source de données sportive, des comptes joueurs et plus de badges. C'est mon terrain de jeu pour pousser le temps réel et AWS en conditions réelles."
+    "statusBody": "La V1 tourne sur un match figé France-Australie, ce qui la découple de toute API sportive. Tout est déjà là : horloge partagée, présence des joueurs en direct, et un classement multijoueur où chacun voit le même résultat. La suite : une vraie source de données sportive, des comptes joueurs et plus de badges. C'est mon terrain de jeu pour pousser le temps réel et AWS en conditions réelles.",
+    "writeupCta": "Lire le write-up technique complet (en anglais)"
   }
 }

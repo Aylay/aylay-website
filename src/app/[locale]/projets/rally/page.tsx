@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import { buildMetadata } from "@/lib/seo";
+import { Link } from "@/i18n/navigation";
 
 const DEMO_URL = "https://rally.lucas-attali.me/";
 
@@ -101,6 +102,15 @@ export default function RallyProject({
             ))}
           </div>
           <p className="font-mono text-[11px] text-cloud/70 mt-5.5 max-w-[70ch]">{t("engineNote")}</p>
+          <div className="mt-7 rv">
+            <Link
+              href="/projets/rally/write-up"
+              locale="en"
+              className="inline-flex items-center gap-2 font-sans font-semibold text-[15px] text-saffron hover:gap-3 transition-[gap]"
+            >
+              {t("writeupCta")} <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
