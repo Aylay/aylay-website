@@ -89,7 +89,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t("beaversCardAria")}
-            className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-ink"
+            className="block h-full rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-ink"
           >
             <ArticleCard tag={t("beaversTag")} year="2019" title="Beavers" color="cobalt" cta={t("beaversCardLink")}>
               {t("beaversBody")}
@@ -102,7 +102,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t("skalpCardAria")}
-            className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-coral-ink"
+            className="block h-full rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-coral-ink"
           >
             <ArticleCard tag={t("skalpTag")} year="2025" title="Skalp" color="coral" cta={t("skalpCardLink")}>
               {t("skalpBody")}
@@ -118,7 +118,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
           <Link
             href="/projets/rally"
             aria-label={t("rallyCardAria")}
-            className="block rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-ink"
+            className="block h-full rounded-[14px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-ink"
           >
             <ArticleCard tag={t("rallyCardTag")} year={t("rallyCardYear")} title="Rally" color="cobalt" cta={t("rallyCardLink")}>
               {t("rallyCardBody")}
