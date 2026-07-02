@@ -4,12 +4,12 @@ const BASE = "https://lucas-attali.me";
 
 export function buildMetadata(
   locale: string,
-  opts: { title: string; description: string; path: string; ogAlt: string }
+  opts: { title: string; description: string; path: string; ogAlt: string; ogImage?: string }
 ): Metadata {
   const fr = opts.path ? `${BASE}${opts.path}` : `${BASE}/`;
   const en = opts.path ? `${BASE}/en${opts.path}` : `${BASE}/en`;
   const canonical = locale === "en" ? en : fr;
-  const og = `/og-image-${locale}.png`;
+  const og = opts.ogImage ?? `/og-image-${locale}.png`;
 
   return {
     title: opts.title,

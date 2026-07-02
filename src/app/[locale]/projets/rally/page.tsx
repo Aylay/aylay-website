@@ -22,6 +22,7 @@ export async function generateMetadata({
     description: t("rallyDescription"),
     path: "/projets/rally",
     ogAlt: t("rallyTitle"),
+    ogImage: "/og-image-rally.png"
   });
 }
 
